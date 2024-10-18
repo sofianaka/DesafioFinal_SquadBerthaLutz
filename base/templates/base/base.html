@@ -11,6 +11,9 @@
     </head>
     <body>
         <div class="blog-main">
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            {% endif %}
             <h1><a href="/">Blog Squad Bertha Lutz</a></h1>
         </div>
 
