@@ -1,9 +1,19 @@
+from django.conf import settings
 from django.db import models
+from django.utils import timezone
 
 
 # Create your models here.
 class Postagens(models.Model):
     titulo = models.CharField(max_length=50)
     conteudo = models.TextField()
-    data_publicacao = models.DateTimeField(auto_now_add=True)
-    autor = models.CharField(max_length=50)
+    data_publicacao = models.DateTimeField(blank=True, null=True)
+    data_criacao = models.DateTimeField(default=timezone.now)
+    autor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    def publish(self):
+        self.data_publicacao = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.titulo
