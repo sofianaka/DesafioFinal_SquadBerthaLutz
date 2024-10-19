@@ -3,12 +3,12 @@
 
 {% block content %}
     {% for post in posts %}
-        <div class="post">
-            <div class="date">
-                <p>publicado: {{ post.data_publicacao }}</p>
-            </div>                     
-            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }}</a></h2>
-            <p>{{ post.conteudo|linebreaksbr }}</p>
+    <div class="post">
+        <div class="bg-light text-dark p-2 mb-2">
+            publicado: {{ post.data_publicacao }}
         </div>
+        <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }}</a></h2>
+        <p>{{ post.conteudo|linebreaksbr }}</p>
+    </div>
     {% endfor %}
 {% endblock %}

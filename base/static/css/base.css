@@ -1,22 +1,4 @@
-/* Código feito em plano escuro e responsivo*/
-body {
-  background-color: #1c1c1c;
-  color: #d4d4d4;
-}
-
-a {
-  color: #82aaff;
-}
-
-.btn-outline-light {
-  color: #bb86fc;
-  border-color: #bb86fc;
-}
-
-.btn-outline-light:hover {
-  background-color: #bb86fc;
-  color: #fff;
-}
+/* Código feito em plano escuro e responsivo */
 
 :root {
   --background-color: #1c1c1c;
@@ -24,16 +6,25 @@ a {
   --highlight-color: #82aaff;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #ffffff;
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-/* Responsividade */
+a {
+  color: var(--highlight-color);
+}
+
+.btn-outline-light {
+  color: var(--highlight-color);
+  border-color: var(--highlight-color);
+}
+
+.btn-outline-light:hover {
+  background-color: var(--highlight-color);
+  color: #fff;
+}
+
 @media (max-width: 768px) {
   body {
     font-size: 16px;
@@ -44,6 +35,11 @@ h6 {
   }
 }
 
-h1 {
-  font-size: 24px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #fff;
 }
