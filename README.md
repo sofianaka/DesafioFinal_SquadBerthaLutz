@@ -1,7 +1,5 @@
 # DesafioFinal_SquadBerthaLutz
 
-**Estrutura de arquivos:**
-
 **estrutura de arquivos:**
 - `/base`: corresponde ao aplicativo que gerencia as publicações do blog
 - `/base/templates/base/`: contém os templates referentes ao blog.
@@ -11,8 +9,9 @@
 **views implementadas:**
 - `post_list`: implementada na raiz do site, lista todos os posts publicados, ou seja que a data de publicação não está vazia.
 - `post_detail`: mostra os detalhes da publicação numa url separada (`/post/{id}`)
+
 **views implementadas que requerem login**
-são funções de gerenciamento e edição das postagens, implementadas no front-end.
+> funções de gerenciamento e edição das postagens, implementadas no front-end.
 - `post_new`: cria novas publicações 
 - `post_edit`: edita publicações 
 - `draft_post_list`: lista as postagens que não foram publicadas
