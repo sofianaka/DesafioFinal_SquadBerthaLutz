@@ -1,10 +1,49 @@
-h1 a, h2 a {
-    color: #3454d1;
-    font-family: 'Roboto Slab', serif;
-    font-weight: 900;
-    font-style: normal;
+/* Código feito em plano escuro e responsivo*/
+body {
+  background-color: #1c1c1c;
+  color: #d4d4d4;
 }
 
-body {
-    padding-left: 15px;
+a {
+  color: #82aaff;
+}
+
+.btn-outline-light {
+  color: #bb86fc;
+  border-color: #bb86fc;
+}
+
+.btn-outline-light:hover {
+  background-color: #bb86fc;
+  color: #fff;
+}
+
+:root {
+  --background-color: #1c1c1c;
+  --text-color: #d4d4d4;
+  --highlight-color: #82aaff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #ffffff;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .navbar {
+    font-size: 18px;
+  }
+}
+
+h1 {
+  font-size: 24px;
 }
