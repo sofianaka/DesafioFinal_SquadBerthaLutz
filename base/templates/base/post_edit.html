@@ -1,11 +1,16 @@
-{% extends 'base/base.html' %}
-
-{% block content %}
-    <div class="post">
-        <h2>novo post</h2>
-        <form method="POST" class="post-form">{% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="save btn btn-default">salvar</button>
-        </form>
+{% extends 'base/base.html' %} {% block content %}
+<div class="container">
+  <form method="POST" class="form-horizontal">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="titulo" class="form-label">Título</label>
+      {{ form.titulo|as_crispy_field }}
     </div>
+    <div class="mb-3">
+      <label for="conteudo" class="form-label">Conteúdo</label>
+      {{ form.conteudo|as_crispy_field }}
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </form>
+</div>
 {% endblock %}

@@ -1,5 +1,7 @@
 # DesafioFinal_SquadBerthaLutz
 
+**Estrutura de arquivos:**
+
 **estrutura de arquivos:**
 - `/base`: corresponde ao aplicativo que gerencia as publicações do blog
 - `/base/templates/base/`: contém os templates referentes ao blog.
@@ -20,4 +22,11 @@ são funções de gerenciamento e edição das postagens, implementadas no front
 **login de usuários**
 rotas: 
 - `/accounts/login/`:
-- `
+- `s`:
+
+**Adições no front-end:**
+- Adicionada barra de pesquisa
+- Implementação de "dark mode"
+- Design responsivo implementado
+- Adicionado diretório de templates em settings.py
+
