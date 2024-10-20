@@ -20,8 +20,7 @@
 
 **login de usuários**
 rotas: 
-- `/accounts/login/`:
-- `s`:
+- `/accounts/login/`: página de login para gerenciamento das postagens
 
 **Adições no front-end:**
 - Adicionada barra de pesquisa

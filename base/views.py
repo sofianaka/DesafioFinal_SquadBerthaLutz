@@ -32,7 +32,6 @@ def post_new(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.autor = request.user
-            post.data_publicacao = timezone.now()
             post.save()
             return redirect("post_detail", pk=post.pk)
     else:
