@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Postagens
 from .forms import PostForm
@@ -9,9 +10,13 @@ from .forms import PostForm
 def post_list(request):
     query = request.GET.get('q')
     if query:
-        posts = Postagens.objects.filter(titulo__icontains=query, data_publicacao__lte=timezone.now()).order_by('data_publicacao')
+        posts = Postagens.objects.filter(
+            (Q(titulo__icontains=query) | Q(conteudo__icontains=query)), 
+            data_publicacao__lte=timezone.now()
+        ).order_by('data_publicacao')
     else:
         posts = Postagens.objects.filter(data_publicacao__lte=timezone.now()).order_by('data_publicacao')
+    
     return render(request, 'base/post_list.html', {'posts': posts})
 
 
