@@ -6,7 +6,7 @@
     <div class="post">
         <div class="bg-light text-dark p-2 mb-2">
             publicado: {{ post.data_publicacao }}
-        </div>
+        </div class="post-content">
         <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }}</a></h2>
         <p>{{ post.conteudo|linebreaksbr }}</p>
     </div>

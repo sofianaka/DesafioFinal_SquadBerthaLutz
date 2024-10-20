@@ -1,45 +1,68 @@
-/* Código feito em plano escuro e responsivo */
-
+/* Variáveis globais para os modos claro e escuro */
 :root {
-  --background-color: #1c1c1c;
-  --text-color: #d4d4d4;
-  --highlight-color: #82aaff;
+  --background-color-light: #f8f9fa; /* Fundo claro */
+  --text-color-light: #212529; /* Texto para o modo claro */
+  --background-color-dark: #121212; /* Fundo escuro */
+  --text-color-dark: #e0e0e0; /* Texto claro para o modo escuro */
+
+  --navbar-bg-color-light: rgba(255, 255, 255, 0.8);
+  --navbar-bg-color-dark: rgba(0, 0, 0, 0.8);
 }
 
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
+body.light-mode {
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
 }
 
+body.dark-mode {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+.navbar {
+  background-size: cover;
+  background-position: center;
+}
+
+body.light-mode .navbar {
+  background-color: var(--navbar-bg-color-light);
+}
+
+body.dark-mode .navbar {
+  background-color: var(--navbar-bg-color-dark);
+}
+
+.post-content {
+  text-align: justify;
+}
+
+/* Acessibilidade para links */
 a {
-  color: var(--highlight-color);
+  color: var(--text-color-light);
 }
 
+body.dark-mode a {
+  color: var(--text-color-dark);
+}
+
+/* Botão de pesquisa */
+.form-control {
+  background-color: var(--background-color-light);
+  color: var(--text-color-dark);
+}
+
+body.dark-mode .form-control {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-light);
+}
+
+/* Acessibilidade de botões */
 .btn-outline-light {
-  color: var(--highlight-color);
-  border-color: var(--highlight-color);
+  color: var(--text-color-light);
+  border-color: var(--text-color-light);
 }
 
-.btn-outline-light:hover {
-  background-color: var(--highlight-color);
-  color: #fff;
-}
-
-@media (max-width: 768px) {
-  body {
-    font-size: 16px;
-  }
-
-  .navbar {
-    font-size: 18px;
-  }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #fff;
+body.dark-mode .btn-outline-light {
+  color: var(--text-color-dark);
+  border-color: var(--text-color-dark);
 }
