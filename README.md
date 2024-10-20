@@ -1,4 +1,5 @@
 # DesafioFinal_SquadBerthaLutz
+O arquivo original com a base e os modelos foi construído em conjunto pela Equipe 02.
 
 **estrutura de arquivos:**
 - `/base`: corresponde ao aplicativo que gerencia as publicações do blog
@@ -27,4 +28,6 @@ rotas:
 - Implementação de "dark mode"
 - Design responsivo implementado
 - Adicionado diretório de templates em settings.py
+
+
 
