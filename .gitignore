@@ -5,3 +5,5 @@ __pycache__/
 venv/
 .env/
 env/
+pyproject.toml
+poetry.lock

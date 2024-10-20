@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if user.is_authenticated %}
+            <div class="btn-group">
+                {% if not post.data_publicacao %}
+                    <form method="POST" action="{% url 'post_publish' pk=post.pk %}" class="post-form">{% csrf_token %}
+                        <button type="submit" class="btn btn-success btn-separado">publicar</button>
+                    </form>
+                {% endif %}
+                <form method="POST" action="{% url 'post_remove' pk=post.pk %}" class="post-form">{% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-separado">apagar</button>
+                </form>
+                <a class="btn btn-primary btn-separado" href="{% url 'post_edit' pk=post.pk %}">
+                    <span class="glyphicon glyphicon-pencil" style="color: #fff;"></span>
+                    Editar
+                </a>
+            </div>
+        {% endif %}
+        <h2>{{ post.titulo }}</h2>
+        <p>{{ post.conteudo|linebreaksbr }}</p>
+    </div>
+{% endblock %}

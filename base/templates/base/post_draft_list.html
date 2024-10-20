@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+    <div class="post">
+        <div class="bg-light text-dark p-2 mb-2">
+            criado em: {{ post.data_criacao|date:'d-m-Y' }}
+        </div>
+        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }}</a></h1>
+        <p>{{ post.conteudo|truncatechars:200 }}</p>
+    </div>
+    {% endfor %}
+{% endblock %}
