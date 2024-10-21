@@ -10,6 +10,8 @@ O arquivo original com a base e os modelos foi construído em conjunto pela Equi
 **views implementadas:**
 - `post_list`: implementada na raiz do site, lista todos os posts publicados, ou seja que a data de publicação não está vazia.
 - `post_detail`: mostra os detalhes da publicação numa url separada (`/post/{id}`)
+- **comentários**:
+    - `post_detail`: gerencia a exibição e adição de comentários em postagens.
 
 **views implementadas que requerem login**
 > funções de gerenciamento e edição das postagens, implementadas no front-end.
@@ -23,11 +25,38 @@ O arquivo original com a base e os modelos foi construído em conjunto pela Equi
 rotas: 
 - `/accounts/login/`: página de login para gerenciamento das postagens
 
+**Administração do Django:**
+- `/admin`: página de gerenciamento do Django, com acesso ao modelo Postagens.
+
+O modelo Postagens foi registrado na interface de administração do Django, utilizando uma classe personalizada <b>PostagensAdmin</b>, que facilita o gerenciamento das publicações.
+
+A classe PostagensAdmin permite:
+Exibir os campos:
+- titulo, 
+- autor, 
+- data_criacao   
+- data_publicacao.
+
+Filtrar postagens por:
+- data_criacao 
+- autor.
+
+Pesquisar por:
+- titulo 
+- conteudo.
+
+Um superusuário foi criado para permitir acesso à interface administrativa, possibilitando que os administradores gerenciem as postagens com facilidade.
+
 **Adições no front-end:**
 - Adicionada barra de pesquisa
 - Implementação de "dark mode"
 - Design responsivo implementado
 - Adicionado diretório de templates em settings.py
+
+### Comentários
+- **Modelo `Comentario`**: Foi adicionado um novo modelo para permitir que os usuários comentem nas postagens.
+- **View `post_detail`**: Implementada para exibir detalhes da postagem e gerenciar os comentários. Os usuários podem adicionar comentários às postagens.
+- **Formulário `ComentarioForm`**: Criado para facilitar a criação de novos comentários, permitindo que os usuários adicionem seu texto de comentário.
 
 
 
