@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Postagens
-from .forms import PostForm
+from .forms import PostForm, ComentarioForm
 
 
 # Create your views here.
@@ -19,10 +19,27 @@ def post_list(request):
     
     return render(request, 'base/post_list.html', {'posts': posts})
 
-
 def post_detail(request, pk):
     post = get_object_or_404(Postagens, pk=pk)
-    return render(request, "base/post_detail.html", {"post": post})
+    comentarios = post.comentarios.all()  # Obtém todos os comentários relacionados à postagem
+
+    if request.method == 'POST':
+        form = ComentarioForm(request.POST)
+        if form.is_valid():
+            comentario = form.save(commit=False)
+            comentario.postagem = post  # Relaciona o comentário à postagem
+            comentario.autor = request.user  # Define o autor como o usuário atual
+            comentario.save()
+            return redirect("post_detail", pk=post.pk)  # Redireciona para a mesma página
+    else:
+        form = ComentarioForm()
+
+    return render(request, "base/post_detail.html", {
+        "post": post,
+        "comentarios": comentarios,
+        "form": form,
+    })
+
 
 
 @login_required
@@ -72,7 +89,8 @@ def post_publish(request, pk):
 
 @login_required
 def post_remove(request, pk):
-    post = get_object_or_404(Post, pk=pk)
+    post = get_object_or_404(Postagens, pk=pk)
     if request.method == "POST":
         post.delete()
     return redirect("post_list")
+

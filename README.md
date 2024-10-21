@@ -23,6 +23,28 @@ O arquivo original com a base e os modelos foi construído em conjunto pela Equi
 rotas: 
 - `/accounts/login/`: página de login para gerenciamento das postagens
 
+**Administração do Django:**
+- `/admin`: página de gerenciamento do Django, com acesso ao modelo Postagens.
+
+O modelo Postagens foi registrado na interface de administração do Django, utilizando uma classe personalizada <b>PostagensAdmin</b>, que facilita o gerenciamento das publicações.
+
+A classe PostagensAdmin permite:
+Exibir os campos:
+- titulo, 
+- autor, 
+- data_criacao   
+- data_publicacao.
+
+Filtrar postagens por:
+- data_criacao 
+- autor.
+
+Pesquisar por:
+- titulo 
+- conteudo.
+
+Um superusuário foi criado para permitir acesso à interface administrativa, possibilitando que os administradores gerenciem as postagens com facilidade.
+
 **Adições no front-end:**
 - Adicionada barra de pesquisa
 - Implementação de "dark mode"

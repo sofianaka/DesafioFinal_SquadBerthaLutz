@@ -21,4 +21,29 @@
         <h2>{{ post.titulo }}</h2>
         <p>{{ post.conteudo|linebreaksbr }}</p>
     </div>
+
+    <div class="comentarios">
+        <h3>Comentários</h3>
+        {% for comentario in post.comentarios.all %}
+            <div class="comentario">
+                <strong>{{ comentario.autor }}</strong>
+                <p>{{ comentario.texto }}</p>
+                <p><em>{{ comentario.data_criacao|date:"F j, Y, g:i a" }}</em></p>
+            </div>
+        {% empty %}
+            <p>Não há comentários ainda.</p>
+        {% endfor %}
+        
+        {% if user.is_authenticated %}
+            <h4>Deixe seu comentário:</h4>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Comentar</button>
+            </form>
+        {% else %}
+            <p>Você precisa estar logado para comentar.</p>
+        {% endif %}
+    </div>
+
 {% endblock %}
